@@ -1,0 +1,27 @@
+extends ../layout
+
+block head
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css")
+
+block content
+    h1.text-center= page.pageName
+
+    br
+    div.container
+        table.table
+            thead
+                tr
+                    th(scope='col') Page
+                    th(scope='col') Edit
+                    th(scope='col') Delete
+
+            tbody
+                each p in userPages
+                    tr
+                        td.col-4= p.pageName
+                        td.col-2.text-center
+                            a.text-dark(href=`/edit?pageCode=${p.pageCode}`)
+                                i.fas.fa-pen.fa-lg
+                        td.col-2.text-center
+                            a.text-dark(href=`/delete?pageCode=${p.pageCode}` data-method='delete')
+                                i.fas.fa-times.fa-lg

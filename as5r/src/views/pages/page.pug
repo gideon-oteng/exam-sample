@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    if page.image
+        img(src=page.image)
+        br
+
+    h1.text-center= page.pageName
+
+    br
+
+    p!= page.content
+
